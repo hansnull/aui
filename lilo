@@ -369,6 +369,7 @@ choose_aurhelper(){
         ;;
       3)
         if ! is_package_installed "pacaur" ; then
+          curl "https://pgp.mit.edu/pks/lookup?op=get&search=0x1EB2638FF56C0C53" -o - | gpg --import
           package_install "base-devel yajl expac"
           pacman -D --asdeps yajl expac
           add_key_user "hkp://pgp.mit.edu 1EB2638FF56C0C53"
